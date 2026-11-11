@@ -5,6 +5,11 @@ const nextConfig = {
 
   output: "export",
 
+  // Automatically use the repository path on GitHub Actions
+  basePath: process.env.GITHUB_ACTIONS
+    ? "/Verdantino_Web"
+    : "",
+
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
