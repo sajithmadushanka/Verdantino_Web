@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function POST(request: Request) {
+  // ── 1. Parse & validate the incoming email ─────────────────────────────────
   let email = "";
   try {
     const body = (await request.json()) as { email?: unknown };
-    email = typeof body.email === "string" ? body.email.trim() : "";
+    email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
   } catch {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
@@ -18,13 +19,40 @@ export async function POST(request: Request) {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // INTEGRATION PLACEHOLDER
-  // No email service is connected yet, so this address is NOT stored anywhere.
-  // Connect a provider here (Mailchimp, ConvertKit, Resend Audiences, Brevo,
-  // a database, etc.), keep API keys in server-side environment variables, and
-  // return an error status if the provider call fails.
-  // ---------------------------------------------------------------------------
+  // ── 2. Save to Google Sheet via SheetDB ────────────────────────────────────
+  const sheetDbUrl = process.env.SHEETDB_URL;
+  if (!sheetDbUrl) {
+    console.error("SHEETDB_URL environment variable is not set.");
+    return NextResponse.json(
+      { error: "Server configuration error. Please try again later." },
+      { status: 500 },
+    );
+  }
 
-  return NextResponse.json({ ok: true, stored: false });
+  try {
+    const sheetRes = await fetch(sheetDbUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        data: [{ email }],
+      }),
+    });
+
+    if (!sheetRes.ok) {
+      const text = await sheetRes.text();
+      console.error("SheetDB error:", sheetRes.status, text);
+      return NextResponse.json(
+        { error: "Could not save your email. Please try again." },
+        { status: 502 },
+      );
+    }
+  } catch (err) {
+    console.error("SheetDB fetch failed:", err);
+    return NextResponse.json(
+      { error: "Network error. Please try again." },
+      { status: 502 },
+    );
+  }
+
+  return NextResponse.json({ ok: true, stored: true });
 }
