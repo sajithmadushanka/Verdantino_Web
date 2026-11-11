@@ -1,14 +1,8 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
 
   output: "export",
-
-  // Automatically use the repository path on GitHub Actions
-  basePath: process.env.GITHUB_ACTIONS
-    ? "/Verdantino_Web"
-    : "",
 
   images: {
     unoptimized: true,
