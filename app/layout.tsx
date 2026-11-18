@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { colors } from "@/lib/colors";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#203D2B",
+  themeColor: colors.forest,
 };
 
 export default function RootLayout({

@@ -13,8 +13,8 @@ export default function Mission() {
           <Image
             src="/images/brand.png"
             alt="VERDANTINO Eco Innovations"
-            width={480}
-            height={160}
+            width={430}
+            height={140}
             priority
             className="h-16 w-auto object-contain sm:h-20 mix-blend-multiply transition-transform duration-500 hover:scale-[1.02]"
           />

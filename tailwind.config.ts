@@ -1,17 +1,18 @@
 import type { Config } from "tailwindcss";
+import { colors } from "./lib/colors";
 
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        canvas: "#FAFAF7",
-        primary: "#315C3D",
-        forest: "#203D2B",
-        mist: "#E8F0E6",
-        sage: "#8AA889",
-        ink: "#26332A",
-        muted: "#747E74",
+        canvas: colors.canvas,
+        primary: colors.primary,
+        forest: colors.forest,
+        sage: colors.sage,
+        mist: colors.mist,
+        ink: colors.ink,
+        muted: colors.muted,
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],

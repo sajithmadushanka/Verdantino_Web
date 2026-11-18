@@ -24,15 +24,15 @@ export default function Logo({
       <div
         className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-300 group-hover:scale-105 ${
           isLight
-            ? "border border-white/15 bg-white/10 backdrop-blur-sm"
-            : "border border-forest/10 bg-forest/5"
+            ? "border border-white/15 bg-white/60 backdrop-blur-sm"
+            : "border border-forest/10 bg-forest/1"
         }`}
       >
         <Image
           src="/images/logo.png"
           alt="VERDANTINO Eco Innovations icon"
-          width={40}
-          height={40}
+          width={60}
+          height={60}
           priority
           className="h-full w-full object-contain"
         />

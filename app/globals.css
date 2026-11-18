@@ -12,12 +12,12 @@
   }
 
   ::selection {
-    background: #8aa889;
-    color: #203d2b;
+    @apply bg-sage text-forest;
   }
 
   :focus-visible {
-    outline: 2px solid #8aa889;
+    outline: 2px solid;
+    @apply outline-primary;
     outline-offset: 3px;
   }
 }
