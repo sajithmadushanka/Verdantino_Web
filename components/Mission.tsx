@@ -5,7 +5,7 @@ export default function Mission() {
     <section
       id="about"
       aria-labelledby="mission-heading"
-      className="scroll-mt-8 bg-canvas px-6 py-28 sm:px-10 sm:py-36 lg:px-14"
+      className="scroll-mt-8 px-6 py-28 sm:px-10 sm:py-36 lg:px-14 bg-mist/60"
     >
       <div className="mx-auto max-w-4xl text-center">
         {/* Full Brand Name Logo Showcase */}
@@ -16,7 +16,7 @@ export default function Mission() {
             width={430}
             height={140}
             priority
-            className="h-16 w-auto object-contain sm:h-20 mix-blend-multiply transition-transform duration-500 hover:scale-[1.02]"
+          className="h-24 w-auto sm:h-28 lg:h-32 object-contain mix-blend-multiply"
           />
         </div>
 

@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-7xl px-6 pb-24 pt-40 sm:px-10 lg:px-14">
         {/* Brand identity badge */}
         <div
-          className="mb-8 inline-flex animate-fade-up items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-2 backdrop-blur-md"
+          className="mb-8 inline-flex animate-fade-up items-center gap-3 rounded-full border border-white/15 bg-sage/30 px-4 py-2 backdrop-blur-md"
           style={{ animationDelay: "0.1s" }}
         >
           <div className="relative flex h-5 w-5 shrink-0 items-center justify-center">

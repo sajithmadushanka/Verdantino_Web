@@ -22,9 +22,9 @@ export default function Logo({
       className={`group inline-flex items-center gap-3 transition ${className}`}
     >
       <div
-        className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-300 group-hover:scale-105 ${
+        className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-300 group-hover:scale-105 ${
           isLight
-            ? "border border-white/15 bg-white/60 backdrop-blur-sm"
+            ? "border border-white/15 bg-sage backdrop-blur-sm"
             : "border border-forest/10 bg-forest/1"
         }`}
       >

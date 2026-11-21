@@ -14,18 +14,24 @@
  * - muted:   #5B6846 (Muted olive-gray for secondary text & captions)
  */
 
+
 export const colors = {
-  // Provided core palette
-  canvas: "#EBEBD8",
-  primary: "#637545",
-  forest: "#455230",
-  sage: "#9BA685",
+  // Core brand palette
+  canvas: "#EBEBD8",     // Warm ivory background
+  primary: "#527D43",   // Main botanical green
+  forest: "#527D43",    //Main green background
+  sage: "#A8B99A",      // Soft sage green
 
   // Supporting tones
-  mist: "#F2F2E5",
-  ink: "#242C1B",
-  muted: "#5B6846",
+  mist: "#F2F2E5",      // Light background / surface
+  ink: "#242C1B",       // Primary text
+  muted: "#5B6846",     // Secondary text
+
+  // Additional accents
+  botanical: "#6F9958", // Fresh green highlights
+  border: "#D8DDCC",    // Subtle borders
 } as const;
+
 
 export type ThemeColors = typeof colors;
 export type ColorKey = keyof ThemeColors;

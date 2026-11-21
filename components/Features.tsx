@@ -50,7 +50,7 @@ export default function Features() {
           {features.map(({ title, description, icon: Icon }, index) => (
             <li
               key={title}
-              className="group rounded-3xl border border-sage/30 bg-canvas p-9 transition duration-500 hover:-translate-y-1 hover:border-sage hover:shadow-xl hover:shadow-forest/20 sm:p-10"
+              className="group rounded-3xl border border-sage/30 bg-mist/60 p-9 transition duration-500 hover:-translate-y-1 hover:border-sage hover:shadow-xl hover:shadow-forest/20 sm:p-10"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-mist text-primary transition-colors duration-500 group-hover:bg-primary group-hover:text-white">
                 <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
