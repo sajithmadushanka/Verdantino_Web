@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 import { colors } from "./lib/colors";
 
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./data/**/*.{ts,tsx}",
+    "./types/**/*.{ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -13,6 +18,8 @@ const config: Config = {
         mist: colors.mist,
         ink: colors.ink,
         muted: colors.muted,
+        botanical: colors.botanical,
+        border: colors.border,
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
