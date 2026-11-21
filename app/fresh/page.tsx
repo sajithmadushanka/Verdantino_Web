@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function FreshPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-canvas px-6">
+    <main className="flex min-h-screen items-center justify-center bg-canvas px-6 pt-28 pb-16">
       <div className="mx-auto max-w-xl text-center">
 
         {/* Logo */}

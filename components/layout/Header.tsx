@@ -3,11 +3,12 @@
 /**
  * VERDANTINO — Primary Header / Navigation
  *
+ * Designed to seamlessly blend with the primary green hero section.
  * Features:
- * - Sticky positioning with a subtle background that appears on scroll
+ * - Sticky navigation with consistent light logo and high-contrast links across all scroll states
  * - Responsive desktop nav + mobile hamburger drawer
- * - CTA button: "Explore Fresh" → /fresh
- * - Logo tone stays consistent (dark on canvas background)
+ * - Primary CTA button: "Explore Fresh" → /fresh (canvas tone for high contrast)
+ * - Zero jumpy tone changes across scroll states
  */
 
 import { useState, useEffect } from "react";
@@ -34,16 +35,16 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-canvas/95 backdrop-blur-md border-b border-border/60 shadow-sm"
-          : "bg-canvas/80 backdrop-blur-sm"
+          ? "bg-forest/95 backdrop-blur-md border-b border-white/15 shadow-lg shadow-black/10"
+          : "bg-forest/80 backdrop-blur-md border-b border-white/10"
       }`}
     >
       <nav
         aria-label="Primary navigation"
         className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-14"
       >
-        {/* Logo */}
-        <Logo tone="dark" showTagline={true} />
+        {/* Logo — tone="light" for pristine readability against forest green */}
+        <Logo tone="light" showTagline={true} />
 
         {/* Desktop navigation */}
         <ul
@@ -54,7 +55,7 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-muted transition-colors duration-200 hover:text-primary"
+                className="text-sm font-medium text-white/80 transition-colors duration-200 hover:text-white"
                 onClick={handleNavClick}
               >
                 {link.label}
@@ -65,7 +66,11 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          <Button href="/fresh" variant="primary" className="text-sm py-2.5 px-6">
+          <Button
+            href="/fresh"
+            variant="secondary"
+            className="text-sm py-2.5 px-6 font-medium"
+          >
             Explore Fresh
           </Button>
         </div>
@@ -73,7 +78,7 @@ export default function Header() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="flex items-center justify-center rounded-lg p-2 text-ink transition-colors hover:bg-sage/20 lg:hidden"
+          className="flex items-center justify-center rounded-lg p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -91,14 +96,14 @@ export default function Header() {
       {menuOpen && (
         <div
           id="mobile-menu"
-          className="border-t border-border/40 bg-canvas px-6 pb-6 pt-4 lg:hidden animate-fade-in"
+          className="border-t border-white/10 bg-forest/98 px-6 pb-6 pt-4 lg:hidden animate-fade-in"
         >
           <ul className="flex flex-col gap-1" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block rounded-lg px-3 py-3 text-base font-medium text-ink transition-colors hover:bg-sage/20 hover:text-primary"
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-white transition-colors hover:bg-white/10 hover:text-mist"
                   onClick={handleNavClick}
                 >
                   {link.label}
@@ -106,10 +111,10 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 border-t border-border/40 pt-4">
+          <div className="mt-4 border-t border-white/10 pt-4">
             <Button
               href="/fresh"
-              variant="primary"
+              variant="secondary"
               className="w-full justify-center"
               onClick={handleNavClick}
             >

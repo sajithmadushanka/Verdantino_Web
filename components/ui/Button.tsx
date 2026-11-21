@@ -6,7 +6,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type ButtonVariant = "primary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "outline" | "outline-light" | "ghost";
 
 interface ButtonProps {
   variant?: ButtonVariant;
@@ -23,8 +23,12 @@ interface ButtonProps {
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
     "bg-primary text-white hover:bg-botanical border border-transparent",
+  secondary:
+    "bg-canvas text-forest hover:bg-white border border-transparent shadow-sm",
   outline:
     "bg-transparent text-ink border border-ink/30 hover:border-primary hover:text-primary",
+  "outline-light":
+    "bg-transparent text-white border border-white/30 hover:border-white hover:bg-white/10",
   ghost:
     "bg-transparent text-muted hover:text-primary border border-transparent",
 };
